@@ -1,0 +1,3 @@
+.modal.hide.fade{:id => "new-sc-#{community.id}"}
+  = simple_form_for community.memberships.build, :wrapper => :inline, :html => {:style => "margin-bottom: 0px"} do |f|
+    = render "sport_community_memberships/modal_form", :f => f, :title => "Rejoindre la communauté #{community.name}"

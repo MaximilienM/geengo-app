@@ -1,0 +1,9 @@
+- if current_community
+  .menu_pills
+    %ul.pills.my_pills
+      %li.my_active{:class => controller.controller_name == "sport_communities" ? "active" : nil}
+        = link_to "Communauté", sport_community_path
+      %li.my_active{:class => controller.controller_name == "infrastructures" ? "active" : nil}
+        = link_to "Où pratiquer ?", infrastructures_path
+      %li.my_active{:class => controller.controller_name == "events" ? "active" : nil}
+        = link_to "Evénements", events_path

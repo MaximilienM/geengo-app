@@ -1,0 +1,5 @@
+%ul.pills
+  %li{:class => controller.action_name == "perso" ? "active" : nil}= link_to "Informations personnelles", "/profile/perso"
+  %li{:class => controller.action_name == "password" ? "active" : nil}= link_to "Modification du mot de passe", "/profile/password"
+  %li{:class => controller.action_name == "sports" ? "active" : nil}= link_to "Mes sports", "/profile/sports"
+  %li{:class => controller.action_name == "documents" ? "active" : nil}= link_to "Documents administratifs", "/profile/documents"

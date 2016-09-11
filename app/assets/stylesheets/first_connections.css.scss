@@ -1,0 +1,81 @@
+.deconnect {
+  text-align: right;
+  margin-top: 10px;
+}
+
+.box_descript_gg {
+  height: 350px;
+  background-color: $light-gray;
+  margin-bottom: 20px;
+  
+  .text-descript-first {
+    width: 940px;
+    margin: 0 auto;
+    padding-top: 30px;
+  }
+}
+
+.box-form {
+  width: 600px;
+  margin: 0 auto;
+  
+  &.first-connect {
+    width: 940px;
+  }
+  
+  .title-form {
+    font-family: "Trebuchet MS", Arial, sans-serif;
+    color: $gray;
+    height: 50px;
+    background-image: url('/images/stripes.png');
+    background-repeat: repeat-x;
+    background-position: left bottom;
+    margin-bottom: 10px;
+    padding-bottom: 15px;
+    margin: 0 auto;
+  }
+
+  .consigne {
+    margin-top: -51px;
+    margin-left: 250px;
+    margin-bottom: 45px;
+  }
+  
+  .sports {
+    margin-left: 20px;
+  }
+  
+  .title_legend {
+    font-size: 16px;
+    font-weight: bold;
+    padding: 0;
+    margin-bottom: 7px;
+  }
+  
+  .part-validate {
+    margin-bottom: 50px;
+    text-align: center;
+    margin-left: -65px;
+  }
+  
+  .subtitle {
+    margin-bottom: 20px;
+  }
+  
+  .length input {
+    width: 300px;
+  }
+  
+  .sport {
+    margin-bottom: 20px;
+  }
+  
+  .check {
+    float: left;
+    margin-right: 10px;
+  }
+  
+  .clear {
+    clear: left;
+  }
+}

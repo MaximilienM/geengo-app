@@ -1,0 +1,49 @@
+%h3.title-module.wall Mes documents
+
+- current_employee.documents.each do |doc|
+      
+  .modal.hide.fade{:id => "destroy-doc-#{doc.id}"}
+    .modal-header
+      %a.close{href: "#"} x
+      %h3 Attention
+    .modal-body
+      %p Voulez-vous vraiment supprimer le document #{doc[:document]}
+    .modal-footer
+      = simple_form_for doc, :wrapper => :inline, :method => :delete, :html => {:style => "margin-bottom: 0px"} do |f|
+        = hidden_field_tag :id => doc.id
+        = f.submit "Confirmer", :class => "btn danger"
+
+%table
+
+  %tr
+    %th Sport
+    %th Type
+    %th Document
+    %th Etat
+    %th
+
+  - current_employee.documents.each do |doc|
+    %tr
+      %td
+        %a{:href => sport_community_path(doc.sport_community_membership.sport_community.name.downcase)}
+          .square-ico-small{:class => doc.sport_community_membership.sport_community.name.downcase, :rel => "twipsy", "data-original-title" => doc.sport_community_membership.sport_community.name}
+      %td= best_in_place doc, :kind, :type => :select, :collection => I18n.t("activerecord.administrative_documents.kinds").stringify_keys.to_a, :display_as => :translated_kind
+      %td= link_to doc[:document], doc.document.url, :target => "_blank"
+      %td= doc.accepted? ? "Accepté" : "En attente de validation"
+      %td
+        %a{href: "#", "data-controls-modal" => "destroy-doc-#{doc.id}", "data-backdrop" => "true", "data-keyboard" => "true"}
+          = image_tag "rails_admin/theme/activo/images/icons/24/cross.png", :alt => "Supprimer le document", :onmouseout => "this.src='/assets/rails_admin/theme/activo/images/icons/24/cross.png'", :onmouseover => "this.src='/assets/rails_admin/theme/activo/images/icons/24/cross-hover.png'", :rel => "twipsy", "data-original-title" => "Supprimer le document"
+
+.modal.hide.fade{:id => "new-doc"}
+  = simple_form_for current_employee.documents.build, :wrapper => :inline, :html => {:style => "margin-bottom: 0px"} do |f|
+    .modal-header
+      %a.close{href: "#"} x
+      %h3 Ajouter un document
+    .modal-body
+      = f.association :sport_community_membership, :collection => current_employee.sport_community_memberships, :label => "Sport", :label_method => proc { |scm| scm.sport_community.name }, :include_blank => false
+      = f.input :kind, :collection => f.object.availables_kinds, :include_blank => false
+      = f.input :document
+    .modal-footer
+      = f.submit "Ajouter le document", class: "btn primary"
+
+%a.btn.primary{href: "#", "data-controls-modal" => "new-doc", "data-backdrop" => "true", "data-keyboard" => "true"} Ajouter un document

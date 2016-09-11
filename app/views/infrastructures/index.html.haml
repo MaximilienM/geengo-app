@@ -1,0 +1,28 @@
+.row
+  .span4.sidebar
+    %h3.title-module Rechercher
+
+    .form_search
+      %form{:action => "/#{current_community.name.downcase}/infrastructures", :method => "get"}
+        %fieldset
+          %legend.bold Proche de ?
+          %ul
+            %li
+              = radio_button_tag "near", "office", @near == "office", :class => "check"
+              mon bureau
+            %li
+              = radio_button_tag "near", "home", @near == "home", :class => "check"
+              mon domicile
+            %li
+              = radio_button_tag "near", "other", @near == "other", :class => "check"
+              autre adresse
+              %input.field_other_adress{:type => "text", :name => "custom_address", :value => @near == "other" ? @near_possibilities["other"] : ""}
+
+          %button.btn.btn_search{:type => "submit"} Rechercher
+
+    = gmaps4rails(@infrastructures.to_gmaps4rails) unless @infrastructures.empty?
+
+  .span12
+    %h3.title-module.wall Infrastructures
+
+    = render @infrastructures

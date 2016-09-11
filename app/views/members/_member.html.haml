@@ -1,0 +1,40 @@
+- membership = member.sport_community_memberships.detect { |scm| scm.sport_community == current_community }
+
+.employee_list
+  .row
+    .span4
+      = image_tag member.photo.convers.url
+      
+      // lien à rendre dynamique pour accéder au profil d'un salarié
+      %a{:href => "/profile/#{member.id}"} 
+        %div.employee_name= member.name
+      
+    .span4
+      .employee_infos= member.department
+      
+    .span4
+      .employee_infos
+        
+      - current_employee.sport_community_memberships.each do |scm|
+        // ajouter je pense dans la classe l'id employee pour n'afficher les sports d'un salarié (et pas sur tous les salariés ici)
+        %a.has-popover.square-ico-small{:class => scm.sport_community.name.downcase, "data-original-title" => scm.sport_community.name, :href => sport_community_path(scm.sport_community.name.downcase)}
+
+          .popover-content
+            .table
+              .infos_sports
+                %table
+                  %tr
+                    %td.title_infos #{SportCommunityMembership.human_attribute_name(:level)}
+                    %td= scm.tranlsated_level
+                  %tr  
+                    %td.title_infos #{SportCommunityMembership.human_attribute_name(:position)} 
+                    %td= scm.position
+                  %tr 
+                    %td.title_infos #{SportCommunityMembership.human_attribute_name(:ranking)} 
+                    %td= scm.ranking
+                  %tr
+                    %td.title_infos #{SportCommunityMembership.human_attribute_name(:licence_number)} 
+                    %td= scm.licence_number
+      
+  .row
+    .span12.border

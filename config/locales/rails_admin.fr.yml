@@ -1,0 +1,6 @@
+fr:
+  admin:
+    employees:
+      list:
+        ask_confirmation: Demander confirmation aux entrées cochées
+        confirmations_sent: Mails de confirmation envoyés

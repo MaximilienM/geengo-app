@@ -1,0 +1,46 @@
+.row
+  .span4
+    #module-members
+      %h3.title-module Les membres
+      
+      = render "sport_communities/join", :community => current_community, :title => "Devenir membre !", :options => {:class => "btn btn_become_member primary"}
+      = render :partial => "members/sidebar_member", :collection => @members, :as => "member"      
+      = link_to "Voir tous les membres", community_members_path, :class => "see_members"
+
+    / #module-teams
+    /   %h3.title-module Les équipes
+    / 
+    /   .team
+    /     %img{:src => "/images/teams/team_1_37.png"}
+    /     .identity_team
+    /       %strong ASPTT Saint-Orens
+    /       %br/
+    /       7 membres
+    /     %a.join_team{:href => "#"} Rejoindre l'équipe !
+    /     
+    /   .team
+    /     %img{:src => "/images/teams/team_2_37.png"}
+    /     .identity_team
+    /       %strong Geengo Tennis
+    /       %br/
+    /       8 membres
+    /       %p.full_team Équipe complète !
+    /       
+    /   %button.btn.btn_create_team Créer une équipe !
+    /   %button.btn.btn_join_team Rejoindre l'équipe 
+    /   
+    /   %a.see_teams{:href => "#"} Voir toutes les équipes
+
+  /* -------------------- [ MUR GENERAL : MES COMMUNAUTES SPORTIVES ] --------------------  */
+  .span12
+    %h3.title-module.wall= current_community.name.titleize
+    
+    .search_partner
+      Rechercher un partenaire, 
+      %a.here{:href => "#"} ici
+      !
+
+    = render "messages/share_form", :commentable => nil
+
+    - @messages.each do |message, replies|
+      = render "messages/thread", :message => message, :replies => replies.keys.reverse

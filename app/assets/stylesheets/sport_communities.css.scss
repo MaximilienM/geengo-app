@@ -1,0 +1,98 @@
+// ----------------------- [ MENU PILLS ] -----------------------
+.events.sport {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.menu_pills {
+  margin-top: 10px;
+}
+
+.pills.my_pills a {
+  background-color: $gray;
+  color: white;
+  text-shadow: none;
+  margin-right: 10px;  
+}
+
+// ----------------------- [ RECHERCHE DE PARTENAIRE ] -----------------------
+.search_partner {
+  margin-bottom: 20px;
+}
+
+.msg_share {
+  width: 602px;
+}
+
+.share {
+  margin-bottom: 20px;
+}
+
+// ----------------------- [ PARTIE A GAUCHE : MEMBRES ET ÉQUIPES ] -----------------------
+#module-members {
+  margin-bottom: 20px;
+}
+
+.member {
+  height: 37px;
+  margin-bottom: 10px;
+  
+  img {
+    float: left;
+    margin-right: 15px;
+  }
+}
+
+.identity {
+  padding-top: 2px;
+  float: left;
+}
+
+.btn_become_member, .btn_create_team {
+  margin: 0px 40px 20px 40px;
+}
+
+.see_members, .see_teams, .see_registered {
+  margin: 0px 40px;
+}
+
+#module-teams {
+  margin-bottom: 20px;
+}
+
+.team {
+  height: 72px;
+  margin-bottom: 10px;
+  background-color: $light-gray;
+  
+  img {
+    float: left;
+    margin-right: 15px;
+    padding-top: 5px;
+    padding-left: 5px;
+  }
+}
+
+.identity_team {
+  padding-top: 8px;
+  float: left;
+  margin-bottom: 5px;
+} 
+
+.join_team {
+  margin-left: 5px;
+}
+
+.full_team {
+  margin-left: -52px;
+  margin-top: 5px;
+}
+
+.btn_join_team {
+  margin: -10px 40px 20px 40px;
+}
+
+
+
+
+

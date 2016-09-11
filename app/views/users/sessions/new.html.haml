@@ -1,0 +1,46 @@
+!!!
+%html
+  %head
+    = stylesheet_link_tag    "admin"
+    = stylesheet_link_tag "rails_admin/rails_admin.css"
+    
+  %body.rails_admin
+  
+    #container
+      #header
+        %h1.title
+          %a{:href => "/admin/"}
+            %span.red Geengo
+            %span.white Admin
+      
+      #wrapper.wat-cf
+        #main.center
+          #connect
+            #block-tables.block
+              .secondary-navigation
+                %ul.wat-cf
+                  %li.first
+                    .connecting Se connecter
+                    
+              .content
+                .inner.top_inner
+                
+                  - flash[:error] = flash[:alert]
+                  = render(:partial => 'layouts/rails_admin/flash', :locals => {:flash => flash})
+                
+                  = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+                    #employee_email_field.field.employee_email.bot
+                      = f.label :email
+                      = f.email_field :email, :id => "employee_email", :class => "string"
+                    
+                    #employee_pw_field.field.employee_pw
+                      = f.label :password, "Mot de passe"
+                      = f.password_field :password, :id => "employee_pw", :class => "string"
+                      
+                    .group.navform.wat-cf.bouton
+                      %button.button{:type => "submit", :name => "_save"}
+                        %img{:alt => "Valider", :src => "/assets/rails_admin/theme/activo/images/icons/tick.png"}
+                        Valider
+              
+          #footer.top_footer
+            %p Rails Admin | 2011

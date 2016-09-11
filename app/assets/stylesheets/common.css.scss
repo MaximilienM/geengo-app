@@ -1,0 +1,512 @@
+// ----------------------- [ IMPORT VARIABLES ] -----------------------
+@import "bootstrap/variables";
+@import "vars";
+
+// ----------------------- [ IMPORT MIXINS ] -----------------------
+@import "bootstrap/mixins";
+@import "mixins";
+
+// ----------------------- [ AUTRES IMPORTS ] -----------------------
+@import "bootstrap/reset";
+@import "bootstrap/scaffolding";
+@import "bootstrap/type";
+@import "bootstrap/forms";
+@import "simple_form";
+@import "bootstrap/tables";
+@import "bootstrap/patterns";
+
+body {
+  padding-top: 40px;
+}
+
+// ----------------------- [ BARRE SALARIE ] -----------------------
+.topbar h3 a, .topbar .brand {
+  margin-left: 0px;
+  padding: 0px;
+  width: 92px;
+  height: 30px;
+  margin-top: 5px;
+
+  &:hover {
+    text-decoration: none;
+  }
+
+}
+
+.pager-link {
+  $diameter: 8px;
+  display: block;
+  width: $diameter;
+  height: $diameter;
+  float: left;
+  margin-left: 10px;
+  color: $gray;
+  background-color: $gray;
+  @include border-radius($diameter/2);
+  overflow: hidden;
+
+  &:hover {
+    color: $gray;
+  }
+
+}
+
+.dropdown-toggle:after {
+  content: "";
+}
+
+.topbar {
+
+  .fill {
+    background-color: $gray;
+    @include vertical-gradient($gray + #111111, $gray);
+  }
+
+  li.dropdown a.dropdown-toggle {
+    color: white;
+    .photo {
+      position: absolute;
+      left: -30px;
+      top: 5px;
+    }
+  }
+
+  div > ul .dropdown-menu {
+    background-color: $gray + #111111;
+    li a {
+      color: white;
+      &:hover {
+        @include vertical-gradient($gray + #070707, $gray - #010101);
+      }
+    }
+
+    .divider {
+      background-color: $gray;
+      border-color: $grayLight;
+    }
+  }
+}
+
+// ----------------------- [ BARRE DES SPORTS ] -----------------------
+#personal-bar {
+  padding: 20px 0px 20px 0px;
+  margin-bottom: 20px;
+
+  li.dropdown {
+    height: 25px;
+    margin-top: 13px;
+
+    a.dropdown-toggle {
+      color: $gray;
+      background-color: $white;
+      padding: 7px 8px;
+      border-radius: 5px;
+
+      &:hover {
+        @include vertical-gradient($light-gray + #070707, $light-gray - #010101);
+      }
+    }
+
+    &.open {
+      a.dropdown-toggle {
+        border-bottom-right-radius: 0px;
+        @include vertical-gradient($light-gray + #070707, $light-gray - #010101);
+      }
+    }
+    
+    .dropdown-toggle.arrow::after {
+      border-top: 4px solid $gray;
+      margin-left: 8px;
+    }
+
+    .dropdown-menu {
+      top: 33px;
+      background-color: $white;
+      min-width: 150px;
+
+      li a {
+        padding: 5px;
+        color: $gray;
+
+        &:hover {
+          @include vertical-gradient($light-gray + #070707, $light-gray - #010101);
+        }
+      }
+
+      .divider {
+        background-color: $white;
+        border-color: $white;
+      }
+    }
+  }
+
+  .personal_sports {
+    ul {
+      margin: 0px;
+      list-style-type: none;
+
+    }
+    .personal-sport {
+      display: block;
+      float: left;
+      width: 59px;
+      height: 59px;
+      overflow: hidden;
+      background-position: 0px 177px;
+      @include default;
+
+      &.tennis {@include tennis;}
+      &.basket {@include basket;}
+      &.natation {@include swim;}
+
+      &.active {
+        background-position: 0px 60px;
+
+        &.tennis {@include tennis;}
+        &.basket {@include basket;}
+        &.natation {@include swim;}
+      }
+    }
+
+    .personal-sport img {
+      display: block;
+    }
+  }
+}
+
+////////// -> CSS APPLICATION.HTML.HAML -> views/layouts
+.other_sport {
+  background-position: 0px -258px;
+  background-repeat: no-repeat;
+  @include default;
+  text-shadow: none;
+  margin-left: -5px;
+
+  &.tennis { @include tennis; }
+  &.basketball { @include basket; }
+  &.natation { @include swim; } 
+
+  .name_other_sport {
+    margin-left: 50px;
+  }
+}
+
+// ----------------------- [ TITRES DES MODULES ] -----------------------
+.title-module {
+  font-family: "Trebuchet MS", Arial, sans-serif;
+  font-size: 15px;
+  text-align: left;
+  height: 50px;
+  width: 220px;
+  background-image: url('/images/stripes.png');
+  background-repeat: repeat-x;
+  background-position: left bottom;
+  margin-bottom: 10px;
+
+  &.wall {
+    width: 700px;
+  }
+}
+
+.title-module-actu {
+  font-family: "Trebuchet MS", Arial, sans-serif;
+  font-size: 15px;
+  text-align: left;
+}
+
+// ----------------------- [ SLIDERS ] -----------------------
+.events {
+  margin-bottom: 30px;
+
+  .event_slider {
+    height: 140px;
+    position: relative;
+    overflow: hidden;
+    background-color: $light-gray;
+  }
+  
+  .event_circle {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    @include border-radius(40px);
+    bottom: -40px;
+    left: -40px;
+    @include default;
+
+    &.tennis { @include tennis; }
+    &.basketball { @include basket; }
+    &.natation { @include swim; }
+  }
+  
+  .box_slider {
+    float: left;
+    width: 126px;
+    margin-right: 2px;
+    
+    &.more {
+      width: 200px;
+    }
+  }
+    
+  .affiche_slider {
+    margin: 10px 43px;
+  }
+  
+  .infos_slider {
+    padding: 7px;
+  }
+
+  .btn {
+    &.registration {
+       font-family: "Trebuchet MS", Arial, sans-serif;
+       margin: 35px 23px;
+    }
+  }
+}
+
+.link_events {
+  margin: 9px;
+  border-left: $medium-gray solid 1px;
+  padding-left: 15px;
+}
+
+// ----------------------- [ LABELS ] -----------------------
+.label {
+  background-color: $gray;
+
+  &.slider {
+    padding: 3px 5px;
+  }
+  
+  &.one {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    
+    &.show {
+      top: 15px;
+    }
+  }
+}
+
+// ----------------------- [ PARTIE DE GAUCHE : PROFIL & MES EVENEMENTS ] -----------------------
+#module-employee {
+  .subtitle {
+    color: black;
+    margin-top: 5px;
+    margin-bottom: 10px;
+  }
+
+  .bottom_sport {
+    margin-bottom: 28px;
+  }
+
+  .box_sport {
+    padding: 14px;
+    padding-left: 60px;
+    background-color: $medium-gray;
+    border-radius: 5px;
+    background-repeat: no-repeat;
+    background-position: 3px -8px;
+    @include default;
+    display: block;
+    margin-bottom: 3px;
+
+    &.tennis { @include tennis; }
+    &.basketball { @include basket; }
+    &.natation { @include swim; }
+
+    &:hover {
+       background-color: $sports-played-hover;
+    }
+  }
+
+  .background {
+    background-color: $light-gray;
+
+    &.back_employee {
+       padding: 15px;
+       margin-bottom: 20px;
+    }
+    &.back_myevents {
+       height: 65px;
+       margin-top: 10px;
+       position: relative;
+       overflow: hidden;
+    }
+  }
+}
+
+.myevent {
+  font-weight: bold;
+  text-align: center;
+  margin-top: 5px;
+}
+
+.circle-myevents {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  @include border-radius(25px);
+  bottom: -25px;
+  left: -25px;
+  background-repeat: no-repeat;
+  background-position: 7px -74px;
+  @include default;
+
+  &.tennis { @include tennis; }
+  &.basketball { @include basket; }
+  &.natation { @include swim; }
+}
+
+// ----------------------- [ MUR COMMUNAUTES SPORTIVES ] -----------------------
+
+.square-ico {
+  height: 52px;
+  width: 52px;
+  border-radius: 10px;
+}
+
+.convers {
+  margin-bottom: 30px;
+  margin-top: 30px;
+
+  .date-wall {
+    font-family: "Trebuchet MS", Arial, sans-serif;
+    font-size: 11px;
+  }
+
+  .square-ico {
+    display: inline-block;
+    margin-top: 6px;
+    background-repeat: no-repeat;
+    background-position: -3px -5px;
+    margin-right: 8px;
+    @include default;
+  }
+
+  &.tennis { .square-ico {@include tennis;} }
+  &.basket { .square-ico {@include basket;} }
+  &.natation { .square-ico {@include swim;} }
+  
+  .message {
+    margin-top: 6px;
+    
+    .rounded_rectangle {
+      border-radius: 10px;
+      margin-bottom: 5px;
+
+      &.first_message {
+        min-height: 54px;
+        background-color: $light-gray;
+        position: relative;
+      }
+            
+      &.answer {
+        min-height: 41px;
+      }
+      
+    .picture_employee {
+      float: left;
+      margin-left: 8px;
+      margin-right: 8px;
+      margin-top: 8px;
+    }
+    
+    .text {
+      font-weight: bold;
+      padding-top: 4px;
+    }
+    
+    .text_content {
+      margin-bottom: 0px;
+      padding-left: 51px;
+      padding-right: 10px;
+      padding-bottom: 5px;
+    }
+    
+    .comment_label {
+      position: absolute;
+      right: 10px;
+      top: 5px;
+      
+      a {
+        color: white;
+      }
+      }
+    }
+  }
+  
+  .bar_answer {
+    padding-left: 10px;
+    padding-top: 1px;
+  }
+
+  .text_msg {
+    margin-left: 10px;
+    margin-bottom: 5px;
+  }
+
+  .answer input {
+    width: 520px;
+    font-style: italic;
+    font-size: 11px;
+  }
+    
+  .comments input {
+    width: 580px;
+  }
+
+  .date_msg {
+    text-align: right;
+    font-style: italic;
+    font-size: 11px;
+    margin-right: 10px;
+  }
+}
+
+// ----------------------- [ FOOTER ] -----------------------
+footer {
+  padding-top: 0px;
+  color: $white;
+  background-color: $gray;
+  font-size: 11px;
+  text-align: center;
+
+  a {
+    color: $white;
+  }
+}
+
+.topbar div > ul, .nav {
+  margin: 0 auto;
+}
+
+// ----------------------- [ POPOVER ] -----------------------
+.popover-content {
+  display: none;
+}
+
+.popover {
+  .inner {
+    width: 285px;
+  }
+  .content {
+    padding: 10px;
+  }
+}
+
+.best_in_place:hover {
+  cursor: pointer;
+}
+
+// ----------------------- [ IMPORT ] -----------------------
+@import "employees";
+@import "infrastructures";
+@import "events";
+@import "sport_communities";
+@import "common_infras_events";
+@import "members";
+@import "table";
+@import "first_connections";

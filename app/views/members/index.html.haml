@@ -1,0 +1,29 @@
+.row
+  .span4
+    %h3.title-module Rechercher
+    %input{:type => "text", :value => "Nom et prénom du membre ?"}
+    %button.btn.search{:type => "submit"} Rechercher
+    
+  .span12
+    %h3.title-module.wall Membres de la communauté Tennis
+    
+    = render "sport_communities/join", :community => current_community, :title => "Rejoindre la communauté", :options => {:class => "btn primary"}
+  
+    = paginate @members
+          
+    .table
+      .employees
+        .row
+          .span4
+            %h5 Salarié
+          .span4
+            %h5 Service  
+          .span4
+            %h5 Ses communautés sportives
+      
+        .row
+          .span12.border
+          
+        = render :partial => "members/member", :collection => @members
+    
+    = paginate @members

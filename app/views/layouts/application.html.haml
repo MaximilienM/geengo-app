@@ -1,0 +1,79 @@
+!!!
+%html{:xmlns => "http://www.w3.org/1999/xhtml"}
+  %head
+    %meta{:content => "text/html; charset=utf-8", "http-equiv" => "Content-Type"}/
+    %title GeenGo - Des salariés sportifs pour une entreprise en pleine forme !
+
+    = stylesheet_link_tag    "application", "/firms/#{current_employee.firm_id}.css"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+
+  %body
+    / -------- HEADER --------
+    .topbar
+      .fill
+        .container
+
+          %a.brand{:href => "/"}
+            = image_tag current_employee.firm.logo.url
+
+          %ul.nav.secondary-nav
+            %li.dropdown
+              %a.dropdown-toggle{:href => "#"}
+                = image_tag(current_employee.photo.topbar.url, :class => "photo")
+                %span= current_employee.name
+              %ul.dropdown-menu
+                %li
+                  %a{:href => "/"} Ma page
+                %li
+                  %a{:href => "/profile/perso"} Editer mon profil
+                %li.divider
+                %li
+                  = link_to('Me déconnecter', destroy_employee_session_path, :method => :delete)
+
+    #personal-bar
+
+        
+      .container
+        .personal_sports
+          %ul
+            - @my_communities.each do |sc|
+              %li= personal_sport_link_for_community(sc)
+
+        - unless @missing_communities.empty?
+
+          %ul.nav.secondary-nav
+            %li.dropdown
+              %a.dropdown-toggle.arrow{:href => "#"} Autres sports
+              %ul.dropdown-menu
+                - max_index = @missing_communities.size - 1
+                - @missing_communities.each_with_index do |sc, index|
+                  %li
+                    %a{:href => sport_community_path(sc.name.downcase)}
+                      %div.other_sport{:class => sc.name.downcase}
+                        %div.name_other_sport= sc.name.titleize
+                  - unless index == max_index
+                    %li.divider
+
+    / -------- WRAPPER : contient tout le reste --------
+    .container
+    
+      = render "sport_communities/navigation"
+      = render "events/sliders"
+      = yield
+
+    %footer
+      .container
+        %ul.nav
+          %li
+            %a{:href => "#"}= "Mentions Légales"
+          %li
+            %a{:href => "#"}= "|"
+          %li
+            %a{:href => "#"} CGU / CGV
+          %li
+            %a{:href => "#"}= "|"
+          %li
+            %a{:href => "#"} Contact
+            
+      = yield :scripts

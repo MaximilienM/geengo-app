@@ -1,0 +1,309 @@
+fr:
+  activerecord:
+    models:
+      admin:
+        one: Admin
+        other: Admins
+      administrative_document:
+        one: Document administratif
+        other: Documents administratifs
+      domain:
+        one: Nom de domaine
+        other: Noms de domaine
+      employee:
+        one: Salarié
+        other: Salariés
+      employees_import:
+        one: Import
+        other: Imports
+      event:
+        one: Évènement
+        other: Évènements
+      events_import:
+        one: Import d'évènements
+        other: Imports d'évènements
+      infrastructure:
+        one: Infrastructure
+        other: Infrastructures
+      infrastructures_import:
+        one: Import d'infrastructures
+        other: Imports d'infrastructures
+      import_discard:
+        one: Abandon
+        other: Abandons
+      firm:
+        one: Entreprise
+        other: Entreprises
+      golf_course:
+        one: Parcours de golf
+        other: Parcours de golf
+      service:
+        one: Prestation
+        other: Prestations
+      sub_service:
+        one: Sous-prestation
+        other: Sous-prestations
+      sport_community_membership:
+        one: Inscription communauté sport
+        other: Inscriptions communautés sport
+      user:
+        one: Utilisateur
+        other: Utilisateurs
+      work_council:
+        one: "Comité d'entreprise"
+        other: "Comités d'entreprise"
+      work_council_group:
+        one: Tranche QF
+        other: Tranches QF
+
+    attributes:
+      administrative_document:
+        kind: Type
+        sport_community_membership: Communautés sportive
+        accepted: Accepté
+        valid_until: Date de validité
+      domain:
+        name: Nom de domaine
+      employee:
+        first_name: Prénom
+        last_name: Nom
+        firm: Entreprise
+        firm_id: entreprise
+        department: Service
+        work_council_group: Tranche QF
+        sport_communities: Communautés sportives
+        sport_community_memberships: Adhésions aux communautés sportives
+        date_of_birth: Date de naissance
+        address: Adresse
+        zip_code: Code Postal
+        city: Ville
+        mobile: Mobile
+        password: Mot de passe
+        password_confirmation: Confirmation du mot de passe
+        remember_me: Se souvenir de moi
+        confirmed_at: Confirmé le
+        work_council_group_name: Tranche QF
+        administrative_documents: Documents administratifs
+      employees_import:
+        created_count: Nb de salariés crées
+        updated_count: Nb de salariés mis à jour
+        created_at: Importé le
+        file: Fichier
+        discards: Abandons
+      event:
+        category: Catégorie Sportive
+        sport_id: Sport
+        name: Nom
+        starts_at: Date de début
+        ends_at: Date de fin
+        description: Description complète
+        short_description: Description courte
+        target: Cible
+        kind: Type
+        game_kind: Formule jeu
+        player_category: Catégorie de joueur
+        participation_terms: Conditions participation
+        max_players_count: Nombre maximum de participants
+        max_team_players_count: Nombre de participants par équipe
+        venue_name: Nom du lieu
+        venue_phone: Téléphone
+        venue_address: Adresse
+        venue_zip_code: Code postal
+        venue_city: Ville
+        venue_country: Pays
+        travel_informations: Informations transport
+        arrival_address: Adresse lieu arrivée
+        arrival_zip_code: Code postal lieu arrivée
+        arrival_city: Ville lieu arrivée
+        arrival_country: Pays lieu arrivée
+        scale: Envergure
+        website_url: Site web officiel
+        brochure_image: Affiche
+        registration_strategy: Mode d’inscription
+        payment_terms: Modalité de paiement
+        registration_starts_on: Date de début d’inscription
+        pfs_registration_ends_on: Date limite d'inscription sur la plate-forme
+        registration_ends_on: Date limite d’inscription réelle
+        registration_email: E-mail d’inscription
+        registration_mail: Courrier d’inscription
+        practical_informations: Informations Pratiques
+        organizer_name: Entité organisatrice
+        organizer_contact: Nom du contact
+        organizer_phone: Téléphone du contact
+        organizer_email: EMail du contact
+        organizer_address: Adresse de l’organisateur
+        organizer_zip_code: Code postal de l’organisateur
+        organizer_city: Ville de l’organisateur
+        organizer_rib: RIB de l’organisateur
+        broadcast_starts_on: Date d’affichage sur la plateforme
+        broadcast_ends_on: Date de fin d’affichage
+        featured: Évènement phare
+        services:
+          one: Prestation
+          other: Prestations
+          name: Nom des prestations
+          sub_services:
+            one: Sous-prestation
+            other: Sous-prestations
+            name: Nom des sous-prestations
+            price: Prix des sous-prestations
+            discount: Réduction des sous-prestations
+      events_import:
+        created_count: Nb d'évènements crées
+        updated_count: Nb d'évènements mis à jour
+        created_at: Importé le
+        file: Fichier
+        discards: Abandons
+      firm:
+        address: Adresse
+        employees: Salariés
+        name: Nom
+        domains: Noms de domaines
+        sport_communities: Communautés sportives
+        complement_color: Couleur principale
+        basecolor_color: Couleur secondaire
+      golf_course:
+        name: Nom
+        holes_count: Nombre de trous
+        length: Longueur
+        white_slope: Slope blanc
+        blue_slope: Slope bleu
+        yellow_slope: Slope jaune
+        red_slope: Slope rouge
+        infrastructure: Golf
+      golf_infrastructure:
+        courses: Parcours
+      import_discard:
+        identifier: Identifiant
+      infrastructure:
+        kind: Type
+        name: Nom Backoffice
+        display_name: Nom d'affichage
+        logo:
+        hq_address: Adresse
+        hq_zip_code: Code postal
+        hq_city: Ville
+        hq_country: Pays
+        hq_phone: Fixe
+        hq_mobile: Mobile
+        hq_fax: Fax
+        hq_email: Email
+        hq_url: Site web
+        contact_name: Nom
+        contact_role: Fonction
+        contact_phone: Mobile
+        contact_email: Email
+        rib_bank: Code banque
+        rib_office: Code guichet
+        rib_account: Numéro de compte
+        rib_key: Clé
+        rib_owner_name: Titulaire du compte
+        rib_owner_address: Adresse du titulaire
+        iban: Code IBAN
+        bic: Code BIC
+        venue_name: Nom du stade/salle
+        venue_address: Adresse
+        venue_zip_code: Code postal
+        venue_city: Ville
+        venue_country: Pays
+        practical_informations: Informations pratiques
+        opening_hours: "Horaires & Ouvertures"
+        equipments: Equipements
+        other_comments: Commentaires
+        geengo_comments: Commentaires Geengo
+        description: Description
+        category: Catégorie
+        accessible: Accessibilité
+        picture_1: Image 1
+        picture_2: Image 2
+        picture_3: Image 3
+        services:
+          one: Prestation
+          other: Prestations
+          name: Nom des prestations
+          sub_services:
+            one: Sous-prestation
+            other: Sous-prestations
+            name: Nom des sous-prestations
+            price: Prix des sous-prestations
+            discount: Réduction des sous-prestations
+        courses:
+          one: Parcours
+          other: Parcours
+          name: Nom des parcours
+          length: Longueur des parcours
+      infrastructures_import:
+        created_count: Nb d'infrastructures crées
+        updated_count: Nb d'infrastructures mis à jour
+        created_at: Importé le
+        file: Fichier
+        discards: Abandons
+      service:
+        name: Nom
+        sub_services: Sous-prestations
+        purchasable: Objet associé
+        purchasable_type: Type de l'objet associé
+      sub_service:
+        name: Nom
+        price: Prix
+        discount: Réduction
+        eligible_conditions: "Condition d'éligibilité"
+        service: Prestation
+      sport:
+        name: "Nom"
+        category: "Catégorie"
+      sport_community_membership:
+        sport_community: Communauté sportive
+        employee: Salarié
+        level: Niveau
+        position: Poste
+        licence_number: Numéro de licence
+        ranking: Classement
+        administrative_documents: Documents administratifs
+      user:
+        roles: "Rôles"
+      work_council:
+        firm: Entreprise
+        annual_discount_ceiling: Plafond annuel
+        groups: Tranches QF
+      work_council_group:
+        name: Nom
+        work_council: Comité d'entreprise
+        discount_percentage: Pourcentage de réduction
+        transaction_discount_ceiling: Plafond par transaction
+        annual_discount_ceiling: Plafond annuel
+        employees: Salariés
+
+    errors:
+      models:
+        employee:
+          attributes:
+            work_council_group_id:
+              inclusion: "n'appartient pas à l'entreprise"
+            email:
+              domain_does_not_belong_to_any_firm: n'a pas un domaine référencé par une entreprise
+
+    # Don't know where to put this for the moment
+    role:
+      name:
+        work_council_admin: Admin CE
+        firm_admin: Admin entreprise
+        infrastructure_admin: Admin infrastructure
+        geengo_admin: Admin Geengo
+        super_admin: Super admin
+
+    sport_community_membership:
+      level:
+        beginner: débutant
+        intermediate: intermédiaire
+        confirmed: confirmé
+
+    administrative_documents:
+      kinds:
+        medical_certificate: Certificat Medical
+        other_medical_attestation: Autre attestation médicale
+        id_card: Pièce d'identité
+        license_form: Formulaire de licence
+        insurance_form: Formulaire d'assurance
+        proof_of_compliant_status: Justificatif de conformité de situation
+        other: Autre

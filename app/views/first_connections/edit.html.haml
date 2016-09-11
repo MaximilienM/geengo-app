@@ -1,0 +1,91 @@
+!!!
+%html
+  %head
+    %title Geengo
+    = stylesheet_link_tag    "application", "/firms/#{current_employee.firm_id}.css"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+
+    .topbar
+      .fill
+        .container
+          %a.brand{:href => "/"} &nbsp;
+          .deconnect
+            %a{:href => "/"} Me déconnecter
+
+    .box_descript_gg
+      .text-descript-first
+        = image_tag("/images/logo-geengo.png", :class => "logo-geengo")
+        %br/
+        %Strong Des salariés sportifs pour une entreprise en pleine forme !
+        %br/
+        %br/
+        Découvrez la toute nouvelle plate forme sociale d’entreprise destinée aux sportifs !
+        Vous y trouverai tout ce dont vous avez besoin : des partenaires, des infrastructures sportives, prix réduits,  réservation en ligne, faire de nouvelles connaissances au sein de votre entreprise, tous les événements sportifs,
+        tournois et autres divertissements.
+
+    .box-form.first-connect
+      .row
+        .span16
+          %h2.title-form Première connection
+          .consigne
+            %p Merci de renseigner les informations suivantes afin de compléter votre profil.
+
+      .row
+        .span16
+          = render "profiles/flash", :flash => flash
+
+      = simple_form_for current_employee, :wrapper => :inline, :url => first_connection_path, :method => :put do |f|
+        .container
+          %fieldset.field
+            .row
+              .span8
+                %legend.title_legend Informations personnelles
+                %p.subtitle Veuillez dans un premier temps remplir les champs obligatoires.
+
+                .length= f.input :first_name, :required => true
+                .length= f.input :last_name, :required => true
+                .length= f.input :date_of_birth, :required => true, :start_year => 1920, :end_year => Date.today.year
+                .length= f.input :address, :input_html => { :rows => '4' }
+                .length= f.input :department
+                .length= f.input :mobile
+                / = f.input :password, :required => true
+                / = f.input :password_confirmation, :required => true, :input_html => { :class => 'marg' }
+                = f.input :photo
+
+          %fieldset.field
+            .span8.sports
+              %legend.title_legend Sports
+              %p.subtitle Selectionnez les communautés sportives auquelles vous voulez appartenir et renseignez les informations.
+
+              - current_employee.firm.sport_communities.ordered_by_sport_name.each do |sc|
+                - m = current_employee.sport_community_memberships.detect { |scm| scm.sport_community_id == sc.id}
+                = f.fields_for :sport_community_memberships, m || sc.memberships.build do |scm_f|
+                  %div.sport
+                    .check= scm_f.check_box :sport_community_id, {:checked => m.present?, :class => "select-community", "data-community-id" => sc.id}, sc.id
+                    .square-ico-small{:class => sc.name.downcase}
+                    %span= sc.name
+                    %div{:style => "clear: left"}
+                    %div{:style => m.present? ? "" : "display: none", :id => "new-scm-for-sc-#{sc.id}"}
+                      = scm_f.input :level, :as => :select, :collection => I18n.t("activerecord.sport_community_membership.level").invert
+                      = scm_f.input :ranking
+                      = scm_f.input :position
+                      = scm_f.input :licence_number, :label => "Licence"
+
+          .row
+            .span16.part-validate
+              %input{:type => "submit", :class => "btn", :value => "Valider"}
+
+    %footer
+      .container
+        %ul.nav
+          %li
+            %a{:href => "#"}= "Mentions Légales"
+          %li
+            %a{:href => "#"}= "|"
+          %li
+            %a{:href => "#"} CGU / CGV
+          %li
+            %a{:href => "#"}= "|"
+          %li
+            %a{:href => "#"} Contact

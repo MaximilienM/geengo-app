@@ -1,0 +1,7 @@
+.member.sidebar
+
+  = image_tag member.photo.convers.url
+  .identity
+    %strong= link_to member.name, "/profiles/#{member.id}"
+    %br
+    = member.department

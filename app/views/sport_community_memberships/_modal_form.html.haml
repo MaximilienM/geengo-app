@@ -1,0 +1,11 @@
+.modal-header
+  %a.close{href: "#"} x
+  %h3= title
+.modal-body
+  = f.hidden_field :sport_community_id
+  = f.input :level, :collection => I18n.t("activerecord.sport_community_membership.level").invert
+  = f.input :ranking
+  = f.input :position
+  = f.input :licence_number, :label => "Licence"
+.modal-footer
+  = f.submit "Rejoindre", :class => "btn primary"

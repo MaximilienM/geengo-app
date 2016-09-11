@@ -1,0 +1,46 @@
+.row
+  .span4
+    #module-employee
+
+      %h3.title-module Mon profil
+
+      .background.back_employee
+
+        = image_tag(current_employee.photo.main.url)
+
+        %h5.subtitle Sports pratiqués
+
+        - current_employee.sport_community_memberships.each do |scm|
+          %a.box_sport.has-popover{:class => scm.sport_community.name.downcase, "data-original-title" => scm.sport_community.name, :href => sport_community_path(scm.sport_community.name.downcase)}
+            = scm.sport_community.name
+            .popover-content
+              %dl
+                %dt= "#{SportCommunityMembership.human_attribute_name(:level)}:"
+                %dd= scm.tranlsated_level
+
+                - [:position, :licence_number, :ranking].each do |attribute|
+                  - if (value = scm.send(attribute)).present?
+                    %dt= "#{SportCommunityMembership.human_attribute_name(attribute)}:"
+                    %dd= value
+
+      #module-myevents
+
+        %h3.title-module Mon calendrier
+
+        .background.back_myevents
+          %span.label 17/10/11
+          .myevent Match Cagival Olympic
+          .circle-myevents.basketball
+
+        .background.back_myevents
+          %span.label 24/11/11
+          .myevent Tournoi St-Orens/Labège
+          .circle-myevents.tennis
+
+
+  /* -------------------- [ MUR GENERAL : MES COMMUNAUTES SPORTIVES ] --------------------  */
+  .span12
+    %h3.title-module.wall Mes communautés sportives
+
+    - @messages.each do |message, replies|
+      = render "messages/thread", :message => message, :replies => replies.keys

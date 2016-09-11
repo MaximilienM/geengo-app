@@ -1,0 +1,26 @@
+- unless controller.is_a? EventsController
+
+  .events
+    .row
+      .span16
+        .row
+          .span2
+            %h3.title-module-actu Evénements
+
+          .span4.link_events
+            = link_to "Les voir tous", "/events"
+
+    .row{:style => "margin-bottom: 10px;"}
+      .span8
+        #left-events-pager{:style => "float: right;"}
+      .span8
+        #featured-events-pager{:style => "float: right;"}
+
+    .row
+      .span8
+        #left-events
+          = render :partial => "events/event_slider", :collection => @my_communities_slider_events, :as => :event
+
+      .span8
+        #featured-events
+          = render :partial => "events/event_slider", :collection => @featured_slider_events, :as => :event

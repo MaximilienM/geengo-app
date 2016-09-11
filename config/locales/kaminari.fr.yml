@@ -1,0 +1,5 @@
+fr:
+  views:
+    pagination:
+      previous: "&larr; Précédent"
+      next: "Suivant &rarr;"

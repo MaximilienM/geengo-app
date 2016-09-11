@@ -1,0 +1,5 @@
+.rounded_rectangle.answer_message
+  %span.picture_employee= image_tag(reply.employee.photo.convers.url, :class => "picture-employee")
+  %div.text= reply.employee.name
+  %p.text_content= reply.content
+  %div.date_msg= l(reply.created_at, :format => "%A %d %B %Y à %Hh%M").titleize

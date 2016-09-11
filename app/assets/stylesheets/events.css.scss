@@ -1,0 +1,75 @@
+.event {
+  margin-bottom: 30px;
+  
+  .square-ico {
+    background-repeat: no-repeat;
+    background-position: -3px -5px;
+    @include default;
+  }  
+   
+  &.tennis { .square-ico {@include tennis;} }
+  &.basket { .square-ico {@include basket;} }
+  &.natation { .square-ico {@include swim;} }
+  
+  .event_name {
+    font-size: 14px;
+    margin-top: 6px;
+    position: relative;
+    
+    &.page {
+      border-bottom: $light-gray solid 1px;
+      padding-bottom: 10px;
+    }
+  }
+  
+  .infra_picture {
+    margin-top: 10px;
+  }
+  
+  .box_bgd {
+    background-color: $light-gray;
+    margin-top: 10px;
+    padding: 10px;
+  }
+  
+  .informations {
+    margin-left: 30px;
+    
+    .p {
+      font-size: 12px;
+      margin-bottom: 5px;
+    }
+  }
+  
+  .more {
+    margin-left: 30px;
+    margin-top: 10px;
+  }
+  
+  .name {
+    margin-top: 15px;
+  }
+  
+  .title_line {
+    font-size: 14px;
+    border-bottom: $medium-gray solid 1px;
+    margin-bottom: 10px;
+    margin-top: 30px;
+  }
+}
+
+.top {
+  margin-top: 20px;
+}
+
+.members {
+  margin-bottom: 20px;
+}
+
+.sel {
+  width: 193px;
+} 
+
+.adresse_page_event {
+  text-align: right;
+}

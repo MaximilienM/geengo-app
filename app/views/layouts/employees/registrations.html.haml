@@ -1,0 +1,43 @@
+!!!
+%html
+  %head
+    %title Geengo
+    = stylesheet_link_tag    "application"
+    = stylesheet_link_tag    "/firms/#{current_employee.firm_id}.css" if current_employee
+    =# javascript_include_tag "application"
+    = csrf_meta_tags
+
+  %body.sign_up
+
+    .topbar
+      .fill
+        .container
+
+    .box_descript_gg
+      .text-descript
+        = image_tag("/images/logo-geengo.png", :class => "logo-geengo")
+        %br/
+        %Strong Des salariés sportifs pour une entreprise en pleine forme !
+        %br/
+        %br/
+        Découvrez la toute nouvelle plate forme sociale d’entreprise destinée aux sportifs !
+        Vous y trouverai tout ce dont vous avez besoin : des partenaires, des infrastructures sportives, prix réduits,  réservation en ligne, faire de nouvelles connaissances au sein de votre entreprise, tous les événements sportifs,
+        tournois et autres divertissements.
+
+
+    .box-form
+      = yield
+
+    %footer
+      .container
+        %ul.nav
+          %li
+            %a{:href => "#"}= "Mentions Légales"
+          %li
+            %a{:href => "#"}= "|"
+          %li
+            %a{:href => "#"} CGU / CGV
+          %li
+            %a{:href => "#"}= "|"
+          %li
+            %a{:href => "#"} Contact

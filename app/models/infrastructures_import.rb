@@ -1,0 +1,2 @@
+class InfrastructuresImport < Import
+end

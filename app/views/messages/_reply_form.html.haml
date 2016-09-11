@@ -1,0 +1,11 @@
+- new_reply = Message.new(:parent => message, :sport_community => message.sport_community, :commentable => message.commentable)
+
+= simple_form_for new_reply do |f|
+
+  = f.hidden_field :sport_community_id
+  = f.hidden_field :commentable_id
+  = f.hidden_field :commentable_type
+  = f.hidden_field :parent_id
+
+  = f.text_field :content, :class => "answer"
+  %button.btn{:type => "submit"} Répondre

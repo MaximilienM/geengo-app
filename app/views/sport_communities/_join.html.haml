@@ -1,0 +1,3 @@
+- unless community.members.include?(current_employee)
+  = render "sport_community_memberships/new", :community => community
+  = link_to title, "#", {"data-controls-modal" => "new-sc-#{community.id}", "data-backdrop" => "true", "data-keyboard" => "true"}.merge(options)

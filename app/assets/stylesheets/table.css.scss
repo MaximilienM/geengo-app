@@ -1,0 +1,34 @@
+.table {
+  
+  .employees, .infos_sports {
+    
+    table, tr, td {
+      border: none;
+    } 
+    
+    .border {
+      border-bottom: $medium-gray solid 1px;
+    }
+  }
+  
+  .employee_list {
+    
+    padding-top: 6px;
+
+    .employee_name {
+      font-weight: bold;
+      margin-top: -27px;
+      margin-left: 45px;
+      margin-bottom: 15px;
+    }
+
+    .employee_infos {
+      margin-top: 11px;
+    }
+  }
+  
+  .title_infos {
+    font-weight: bold;
+    min-width: 115px;
+  }
+}

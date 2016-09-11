@@ -1,0 +1,17 @@
+= field_wrapper_for(form, field) do
+
+  .input
+    - image = field.bindings[:object].send(field.name)
+    - if image.path # the most direct check of an assets existence I could see
+      .row
+        -# load a default 'version' if it exists. should really be set through rails_admin's DSL:
+        - default_version = image.versions[:main]
+        = image_tag default_version && default_version.url || image.url
+        %br
+        = form.check_box "remove_#{field.name}"
+        = form.label "remove_#{field.name}", "Supprimer #{field.label.downcase}", class: "inline"
+    .row
+      = form.file_field field.name, class: "fileUploadField #{field.has_errors? ? "errorField" : nil}"
+      - if field.has_errors?
+        %span.errorMessage(style="margin-left:3px") #{field.label } #{field.errors.first}
+      = form.hidden_field "#{field.name}_cache"

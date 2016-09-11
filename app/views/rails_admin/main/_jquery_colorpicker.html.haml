@@ -1,0 +1,30 @@
+= field_wrapper_for(form, field) do
+  = form.send field.view_helper, field.name, field.html_attributes
+
+- head_style "/stylesheets/colorpicker.css"
+
+- head_javascript "/javascripts/colorpicker.js"
+
+- head_javascript do
+  :plain
+    $j(document).ready(function($){
+    
+      var colorSelector = "#firm_#{field.name}";
+    
+      $(colorSelector).ColorPicker(
+      {
+        color: "#{form.object.send(field.name)}",
+        onShow: function (colpkr) {
+          $(colpkr).fadeIn(500);
+          return false;
+        },
+        onHide: function (colpkr) {
+          $(colpkr).fadeOut(500);
+          return false;
+        },
+        onChange: function (hsb, hex, rgb) {
+          $(colorSelector).val('#' + hex);
+        }
+      });
+      
+    });

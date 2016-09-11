@@ -1,0 +1,3 @@
+fr:
+  cancan:
+    access_denied: "Vous n'avez pas les authorisations nécessaires"

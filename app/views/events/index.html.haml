@@ -1,0 +1,46 @@
+.row
+  .span4
+    %h3.title-module Rechercher
+    
+    .form_search
+      %form
+        %fieldset 
+          %legend.bold Quand ?
+          %ul
+            %li
+              %input.check{:type => "checkbox", :name => "my_home"} passés
+            %li  
+              %input.check{:type => "checkbox", :checked => "checked", :name => "my_company"} à venir
+            %li 
+              %input.check{:type => "checkbox", :name => "month"} mois de :
+              %select.check.sel{:select => "select", :name => "month"}
+                %option Janvier
+                %option Février
+                %option Mars
+                %option Avril
+                %option Mai
+                %option Juin
+                %option Juillet
+                %option Août
+                %option Septembre
+                %option Octobre
+                %option Novembre
+                %option Décembre
+                
+        %fieldset
+          %legend.bold Proche de ?
+          %ul
+            %li
+              %input.check{:type => "checkbox", :name => "my_home"} mon domicile
+            %li  
+              %input.check{:type => "checkbox", :name => "my_company"} mon bureau
+            %li 
+              %input.check{:type => "checkbox", :name => "other"} autre adresse :
+              %input.field_other_adress{:type => "text", :name => "other_adress"} 
+        
+          %button.btn.btn_search{:type => "submit"} Rechercher
+                
+  .span12
+    %h3.title-module.wall Evénements
+
+    = render @events

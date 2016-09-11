@@ -1,0 +1,7 @@
+<% if @employee.present? %>
+  $("body.sign_in input[name='employee[email]']").next().show();
+  $('img.company').attr('src', "<%= @employee.firm.logo.url %>").show();
+<% else %>
+  $("body.sign_in input[name='employee[email]']").next().hide();
+  $('img.company').hide();
+<% end %>

@@ -1,0 +1,41 @@
+.convers{:class => message.sport_community.name.downcase}
+
+  %div.date-wall= l(message.updated_at, :format => "%A %d %B %Y à %Hh%M").titleize
+  
+  - if [SportCommunitiesController, ProfilesController].include? controller.class
+    .row
+      .span1
+        .square-ico
+    
+      .span11.message
+        .rounded_rectangle.first_message
+          %span.picture_employee= image_tag(message.employee.photo.convers.url, :class => "picture-employee")
+          %span.comment_label= comment_label(message)
+          .text= message.employee.name
+          %p.text_content= message.content.html_safe
+          
+          - unless replies.empty?
+            .date_msg= l(message.created_at, :format => "%A %d %B %Y à %Hh%M").titleize
+            
+        = render :partial => "messages/reply", :collection => replies, :as => :reply 
+      
+        .rounded_rectangle.answer
+          .bar_answer
+            = render "messages/reply_form", :message => message
+  
+  - if [InfrastructuresController, EventsController].include? controller.class
+    .message
+      .rounded_rectangle.first_message
+        %span.picture_employee= image_tag(message.employee.photo.convers.url, :class => "picture-employee")
+        %span.comment_label= comment_label(message)
+        .text= message.employee.name
+        %p.text_content= message.content.html_safe
+      
+        - unless replies.empty?
+          .date_msg= l(message.created_at, :format => "%A %d %B %Y à %Hh%M").titleize
+    
+      = render :partial => "messages/reply", :collection => replies, :as => :reply
+    
+      .rounded_rectangle.answer.comments
+        .bar_answer
+          = render "messages/reply_form", :message => message

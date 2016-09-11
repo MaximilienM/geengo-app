@@ -1,0 +1,2 @@
+class AdministrativeDocumentUploader < GeengoUploader
+end

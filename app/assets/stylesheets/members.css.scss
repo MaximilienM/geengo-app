@@ -1,0 +1,26 @@
+.pagination {
+  margin-left: 324px;    
+}
+
+.search {
+  margin-top: 10px;
+  margin-left: 124px;
+}
+
+.square-ico-small {
+  display: inline;
+  float: left;
+  height: 25px;
+  width: 25px;
+  margin-top: -5px;
+  margin-right: 5px;
+  border-radius: 5px;
+  background-repeat: no-repeat;
+  background-position: -16px -77px;
+  @include default;
+  
+  &.tennis {@include tennis;}
+  &.basket {@include basket;}
+  &.natation {@include swim;}
+}
+

@@ -1,0 +1,67 @@
+!!!
+%html
+  %head
+    %title Geengo
+    = stylesheet_link_tag    "application"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+
+  %body.sign_in
+
+    .topbar
+      .fill
+        .container
+
+    .box_descript_gg
+      .text-descript
+        = image_tag("/images/logo-geengo.png", :class => "logo-geengo")
+        %br/
+        %Strong Des salariés sportifs pour une entreprise en pleine forme !
+        %br/
+        %br/
+        Découvrez la toute nouvelle plate forme sociale d’entreprise destinée aux sportifs !
+        Vous y trouverai tout ce dont vous avez besoin : des partenaires, des infrastructures sportives, prix réduits,  réservation en ligne, faire de nouvelles connaissances au sein de votre entreprise, tous les événements sportifs,
+        tournois et autres divertissements.
+
+
+    .box-form
+      %h2.title-form S'identifier
+      = image_tag("/images/logo.png", :class => "company", :style => "display: none;")
+
+      = render "profiles/flash", :flash => flash
+
+      = simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+
+        .box-connect
+          .input
+          .input-append
+            %label Email
+            %input{:type => "text", :name => "employee[email]"}
+            %label.add-on.active{:style => "color: black; font-family: verdana; display: none;"} &radic;
+
+          %label Mot de passe
+          %input{:type => "password", :name => "employee[password]"}
+          /%a.pw_forgot{:href => "#"} Mot de passe oublié ?
+
+          .input-remember
+            = f.input :remember_me, :as => :boolean if devise_mapping.rememberable?
+
+          .register
+            %a{:href => "sign_up"} S'inscrire !
+
+          .btn-connect
+            = f.button :submit, "Se connecter"
+
+    %footer
+      .container
+        %ul.nav
+          %li
+            %a{:href => "#"}= "Mentions Légales"
+          %li
+            %a{:href => "#"}= "|"
+          %li
+            %a{:href => "#"} CGU / CGV
+          %li
+            %a{:href => "#"}= "|"
+          %li
+            %a{:href => "#"} Contact

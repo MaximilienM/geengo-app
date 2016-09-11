@@ -1,0 +1,17 @@
+%h3.title-module.wall Informations personnelles
+
+= simple_form_for current_employee, :wrapper => :inline, :url => profile_path do |f|
+  
+  .row
+    .span6
+      = f.input :first_name
+      = f.input :last_name
+      = f.input :department
+      = f.input :address, input_html: {rows: "3"}
+      = f.input :mobile
+
+    .span6
+      = image_tag current_employee.photo.main.url
+      = f.file_field :photo
+
+  = f.submit "Enregistrer", class: "btn primary"

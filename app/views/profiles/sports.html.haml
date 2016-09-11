@@ -1,0 +1,51 @@
+%h3.title-module.wall Mes sports
+
+- @my_memberhips.each do |scm|      
+  .modal.hide.fade{:id => "destroy-scm-#{scm.id}"}
+    .modal-header
+      %a.close{href: "#"} x
+      %h3 Attention
+    .modal-body
+      %p Voulez-vous vraiment quitter la communauté #{scm.sport_community.name}
+      %p Si vous quittez cette communauté sportive, tous vos documents seront perdus.
+    .modal-footer
+      = simple_form_for scm, :wrapper => :inline, :method => :delete, :html => {:style => "margin-bottom: 0px"} do |f|
+        = hidden_field_tag :id => scm.id
+        = f.submit "Confirmer", :class => "btn danger"
+
+%table
+  %tr
+    %th Sport
+    %th Niveau
+    %th Classement
+    %th Poste
+    %th Licence
+    %th
+    %th
+
+  - @my_memberhips.each do |scm|
+    %tr
+      %td
+        %a{:href => sport_community_path(scm.sport_community.name.downcase)}
+          .square-ico-small{:class => scm.sport_community.name.downcase}
+        = scm.sport_community.name
+      %td= best_in_place scm, :level, :type => :select, :collection => I18n.t("activerecord.sport_community_membership.level").stringify_keys.to_a, :display_as => :tranlsated_level
+      %td= best_in_place scm, :ranking
+      %td= best_in_place scm, :position
+      %td= best_in_place scm, :licence_number
+      %td
+        %a{href: "#", "data-controls-modal" => "destroy-scm-#{scm.id}", "data-backdrop" => "true", "data-keyboard" => "true"}
+          = image_tag "rails_admin/theme/activo/images/icons/24/cross.png", :alt => "Quitter la communauté", :onmouseout => "this.src='/assets/rails_admin/theme/activo/images/icons/24/cross.png'", :onmouseover => "this.src='/assets/rails_admin/theme/activo/images/icons/24/cross-hover.png'", :rel => "twipsy", "data-original-title" => "Quitter la communauté"
+  
+%h3.title-module.wall Autres sports
+= render :partial => "sport_community_memberships/new", :collection => @missing_communities, :as => :community
+
+%table
+  - @missing_communities.each do |sc|
+    %tr
+      %td
+        %a{:href => sport_community_path(sc.name.downcase)}
+          .square-ico-small{:class => sc.name.downcase}
+        = sc.name
+      %td
+        %a.btn.primary{href: "#", "data-controls-modal" => "new-sc-#{sc.id}", "data-backdrop" => "true", "data-keyboard" => "true"} Devenir membre

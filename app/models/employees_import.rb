@@ -1,0 +1,2 @@
+class EmployeesImport < Import
+end

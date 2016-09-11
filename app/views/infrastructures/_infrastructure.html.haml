@@ -1,0 +1,35 @@
+.infrastructure.list.row
+  .span1
+    .square-ico
+      %div.distance= distance_in_meters_or_km(infrastructure.distance) if infrastructure.respond_to?(:distance)
+  
+  .span11
+    .row
+      .span1
+        = image_tag infrastructure.logo.index.url
+      
+      .infra_name.index.bold
+        = link_to infrastructure.display_name, infrastructure
+        
+    .row
+      .span11.box_bgd 
+        .row
+          .span3.infra_picture
+            = image_tag infrastructure.picture_1.index.url
+            = link_to "En savoir plus", infrastructure, :class => "btn more"
+
+          .span8
+            .row
+              .span8
+                .infra_adress
+                  / Infra address
+                  = infrastructure.hq_address
+                  = infrastructure.hq_zip_code
+                  = infrastructure.hq_city
+        
+            .row
+              .span8
+                .infra_description.list
+                  / Infra description
+                  = infrastructure.description
+

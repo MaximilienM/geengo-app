@@ -1,0 +1,65 @@
+.event.row{:class => event.sport.name.downcase }
+  .span1
+    .square-ico
+      
+  .row
+    .span11.event_name
+      - Rails.logger.debug event.sport_id
+      .bold= link_to event.name, event_path(event.sport.name.downcase, event.id)
+      
+      - if event.featured?
+        %span.label.important.one A la une
+   
+    .span11
+      .box_bgd
+        .row
+          .span3
+            = image_tag event.brochure_image.url
+            %a.btn.more{:href => event_path(event.sport.name.downcase, event.id)} En savoir plus
+    
+          .span7.informations
+            %div.p= event.short_description
+
+            / Dates
+            %h5 Date
+            %div.p= l(event.starts_at, :format => "%A %e %B %Y").titleize
+            %h5 Fin d'inscription  
+            %div.p= l(event.pfs_registration_ends_on, :format => "%A %e %B %Y").titleize if event.pfs_registration_ends_on
+
+            / Adresse
+            %h5 Lieu
+            .p
+              %div= event.venue_name
+              %div= event.venue_address
+              %span
+                = event.venue_zip_code
+                = event.venue_city
+
+            / Conditions
+            %h5 Conditions de participation
+            %div.p= event.participation_terms
+        
+            .row
+              .span11
+                / les derniers inscrits
+                %h5 Derniers inscrits
+              
+                %span{:href => "#", "data-original-title" => "Michelle Burta" , :rel => "twipsy"}
+                  %img{:alt => "photo de Michelle Burta", :src => "/images/employees/burta_37.png"}
+              
+                %span{:href => "#", "data-original-title" => "Jean Dupont" , :rel => "twipsy"}
+                  %img{:alt => "photo de Jean Dupont", :src => "/images/employees/dupont_37.png"}
+            
+                %span{:href => "#", "data-original-title" => "Pascal Yauru" , :rel => "twipsy"} 
+                  %img{:alt => "photo de Pascal Yauru", :src => "/images/employees/yauru_37.png"}
+            
+                %span{:href => "#", "data-original-title" => "Mimi Outi" , :rel => "twipsy"}
+                  %img{:alt => "photo de Mimi Outi", :src => "/images/employees/outi_37.png"}
+              
+                %span{:href => "#", "data-original-title" => "Michelle Arti" , :rel => "twipsy"}
+                  %img{:alt => "photo de Michelle Arti", :src => "/images/employees/burta_37.png"}
+              
+                %span{:href => "#", "data-original-title" => "Jean Pouset" , :rel => "twipsy"}
+                  %img{:alt => "photo de Jean Pouset", :src => "/images/employees/dupont_37.png"}
+  
+      

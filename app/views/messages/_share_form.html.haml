@@ -1,0 +1,13 @@
+- new_message = Message.new(:sport_community => current_community, :commentable => commentable)
+
+= simple_form_for new_message, :url => "/messages" do |f|
+  = f.hidden_field :sport_community_id
+  = f.hidden_field :commentable_id
+  = f.hidden_field :commentable_type
+
+  .share
+    %span
+      = f.text_field :content, :class => "msg_share", :placeholder => "Quelque chose à partager ?"
+    %span
+      %button.btn.btn_share{:type => "submit"} Partager
+    //= f.submit "Partager"

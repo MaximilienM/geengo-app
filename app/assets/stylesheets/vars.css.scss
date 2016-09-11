@@ -1,0 +1,8 @@
+$light-gray: #f7f7f7;
+$medium-gray: #e9e9e9;
+$sports-played-hover: #e4e4e4;
+$linkColor: $gray;
+
+// Don't know why I have to leave this here ... but I get a Sass::SyntaxError syntax error if I don't
+// spin(#049cdb, 180) is not a color for `rgba'
+$complement: #ffffff;

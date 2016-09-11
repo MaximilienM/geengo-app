@@ -1,0 +1,99 @@
+.row
+  .span4
+    %h3.title-module Les tarifs
+    
+    %h3.title-module Les inscrits
+    .members
+      .member
+        %img{:src => "/images/employees/dupont_37.png"}
+        .identity
+          %strong Jean Dupont
+          %br/
+          Matériel
+    
+      .member
+        %img{:src => "/images/employees/yauru_37.png"}
+        .identity
+          %strong Pascal Yauru
+          %br/
+          Comptabilité
+    
+      .member
+        %img{:src => "/images/employees/burta_37.png"}
+        .identity
+          %strong Michelle Burta
+          %br/
+          Ressources humaines
+        
+    %a.see_registered{:href => "#"} Voir tous les inscrits
+  
+  .span12
+    %h3.title-module.wall Evénements
+    
+    .event.page{:class => current_community.name.downcase }
+      .event_name.page.bold
+        .row
+          .span1
+            .square-ico
+          
+          .span9.name
+            = @event.name
+            
+          .span2
+            - if @event.featured?
+              %div.label.important.one.show A la une
+      
+      .row
+        .span3
+          .infra_picture
+            = image_tag @event.brochure_image.url
+            
+        .span8
+          .infra_description
+            = @event.description
+        
+      .details
+        %table
+          %tr
+            %td.title_details Date de début
+            %td= l(@event.starts_at, :format => "%A %e %B %Y").titleize
+          %tr
+            %td.title_details Date de fin d'inscription
+            %td= l(@event.pfs_registration_ends_on, :format => "%A %e %B %Y").titleize if @event.pfs_registration_ends_on
+          %tr
+            %td.title_details Heure de départ 
+            %td= l(@event.starts_at, :format => "%Hh%M")
+          %tr
+            %td.title_details Contact de l'organisateur
+            %td= @event.organizer_contact
+          %tr
+            %td.title_details Téléphone de l'organisateur
+            %td= @event.organizer_phone
+          %tr
+            %td.title_details Email de l'organisateur
+            %td= @event.organizer_email
+          %tr
+            %td.title_details Site internet
+            %td= @event.website_url 
+          %tr
+            %td.title_details Conditions de participation
+            %td= @event.participation_terms
+      
+      .title_line.bold Où ce trouve ce tournoi ?
+      .row
+        .span9
+          = gmaps4rails(@event.to_gmaps4rails)
+        
+        .span3.adresse_page_event
+          %p.bold Adresse
+          %div= @event.venue_name
+          %div= @event.venue_address
+          = @event.venue_zip_code
+          = @event.venue_city     
+
+      .title_line.bold Commentaires
+      
+      = render "messages/share_form", :commentable => @event
+      
+      - @messages.each do |message, replies|
+        = render "messages/thread", :message => message, :replies => replies.keys

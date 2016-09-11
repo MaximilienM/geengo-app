@@ -1,0 +1,55 @@
+#connect {
+  width: 397px;
+  margin: 0 auto;
+  margin-top: 80px;
+}
+
+.bouton {
+  margin-left: 283px;
+}
+
+.pw_forgot {
+  margin-left: 102px;
+  font-size: 11px;
+  font-weight: bold;
+  margin-top: 10px;
+  
+  a {
+    text-decoration: none;
+  }
+  
+    :hover {
+      text-decoration: underline;
+    }
+}
+
+.check {
+  margin-top: 20px;
+  margin-left: 102px;
+  margin-right: 8px;
+}
+
+.top_inner {
+  margin-top: 10px;
+}
+
+.top_footer {
+  margin-top: 80px;
+}
+
+.remember_me {
+  font-size: 11px;
+  font-weight: bold;
+}
+
+#main.center {
+  width: 100%;
+}
+
+.connecting {
+  padding: 10px 15px;
+}
+
+#employee_email_field.field.employee_email.bot {
+  padding-bottom: 3px;
+}

@@ -1,0 +1,26 @@
+.event_slider
+  .event_circle{:class => "basketball"}
+  
+  %div
+    %span.label.slider= event.featured? ? "A la une" : "Mes communautés"
+    
+  %div.box_slider 
+    %div.affiche_slider= image_tag event.brochure_image.slider.url
+  
+  %div.box_slider.more
+    %div.infos_slider
+      %strong= event.name
+      %br
+      %em= event.sport.name
+      %br
+      = l(event.starts_at, :format => "%A %e %B %Y").titleize
+      %br
+
+      - if event.pfs_registration_ends_on
+        %br
+        .bold Inscriptions avant le
+        = l(event.pfs_registration_ends_on, :format => "%A %e %B %Y").titleize
+    
+      
+  %div.box_slider
+    = link_to "M'inscrire", event_path(event.sport.name.downcase, event.id), :class => "btn registration"

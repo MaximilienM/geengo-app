@@ -1,0 +1,11 @@
+- unless flash.empty?
+  #flash
+    - if flash[:notice]
+      .alert-message.success.fade.in
+        %a.close x
+        %p= flash[:notice]
+
+    - if flash[:alert]
+      .alert-message.error.fade.in{"data-alert" => "alert"}
+        %a.close x
+        %p= flash[:alert]

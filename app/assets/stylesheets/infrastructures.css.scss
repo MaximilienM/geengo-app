@@ -1,0 +1,140 @@
+// -------------------- [ INFRASTRUCTURE : listing et page ] --------------------
+.infrastructure {
+  // css correspondant par default d'abord à la page infra et avec le & au listing = mix des deux
+  margin-bottom: 30px;
+
+  .infra_name {
+    font-size: 14px;
+    margin-top: 6px;
+    
+    &.index {
+      margin-left: 60px;
+    }
+
+    &.page {
+      border-bottom: $light-gray solid 1px;
+      padding-bottom: 10px;
+    }
+
+    .name {
+      margin-top: 18px;
+      margin-left: 20px;
+    }
+  }
+
+  // css correspondant au listing infra uniquement
+  &.list {
+    .distance {
+      color: white;
+      padding: 15px 0px;
+      text-align: center;
+    }
+
+    .span1 img {
+      margin-bottom: 8px;
+    }
+
+    .box_bgd {
+      background-color: $light-gray;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      
+      .infra_picture img {
+        margin-left: 10px;
+      }
+    }
+
+    .infra_adress {
+      font-style: italic;
+      margin-bottom: 10px;
+    }
+
+    .more {
+      margin-left: 25px;
+      margin-top: 5px;
+    }
+  }
+
+  // css correspondant à la page infra uniquement
+  &.page {
+    .title_line {
+      font-size: 14px;
+      border-bottom: $medium-gray solid 1px;
+      margin-bottom: 10px;
+      margin-top: 30px;
+    }
+    
+    .infra_picture {
+      margin-top: 10px;
+    }
+
+    .adresse_page_infra {
+      text-align: right;
+    }
+  }
+}
+
+// -------------------- [ FORMULAIRE DE RECHERCHE LISTING INFRAS ] --------------------
+.form_search {
+  margin-bottom: 20px;
+
+  ul {
+    list-style-type: none;
+  }
+
+  legend {
+    padding-left: 0px;
+    font-size: 14px;
+  }
+
+  .check {
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+
+  .field_other_adress {
+    width: 183px;
+  }
+
+  .btn_search {
+    margin-left: 122px;
+  }
+}
+
+// -------------------- [ OFFRES PAGE INFRA ] --------------------
+.sub_service {
+  border: $medium-gray solid 1px;
+  border-radius: 10px;
+  padding: 6px;
+
+  .price {
+    text-decoration: line-through;
+  }
+
+  .percentage {
+    background-color: green;
+    color: white;
+    border-radius: 10px 0px 10px 0px;
+    padding: 4px;
+    margin: 5px 5px;
+  }
+
+  .price_discount {
+    color: red;
+    font-size: 15px;
+  }
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.center {
+  text-align: center;
+}
+
+.bottom {
+  margin-bottom: 10px;
+}
+
+

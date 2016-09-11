@@ -1,0 +1,84 @@
+.row
+  .span4
+    %h3.title-module Les offres
+    - @sub_services.each do |ss|
+      .sub_service.bottom
+        %div.bold
+          = ss.service.name
+
+        %div.bottom
+          = ss.name
+
+        %div.center
+          %span.price
+            = number_to_currency ss.price
+
+          %span.percentage
+            = number_to_percentage(ss.discount/ss.price * 100, :precision => 0)
+
+          %span.price_discount.bold
+            = number_to_currency ss.price - ss.discount
+
+  .span12
+    %h3.title-module.wall Infrastructure de Natation
+
+    .infrastructure.page
+      .infra_name.page.bold
+        .row
+          .span1
+            = image_tag @infrastructure.logo.show.url
+            
+          .span11
+            %div.name
+              = @infrastructure.display_name
+
+      .infra_picture
+        = image_tag @infrastructure.picture_1.show.url
+        = image_tag @infrastructure.picture_2.show.url
+        = image_tag @infrastructure.picture_3.show.url
+
+      .infra_description
+        = @infrastructure.description
+
+      .details
+        %table
+          %tr
+            %td.title_details Téléphone
+            %td= @infrastructure.hq_phone
+          %tr
+            %td.title_details Portable
+            %td= @infrastructure.hq_mobile
+          %tr
+            %td.title_details Fax
+            %td= @infrastructure.hq_fax
+          %tr
+            %td.title_details Email
+            %td= @infrastructure.hq_email
+          %tr
+            %td.title_details Site web
+            %td= @infrastructure.hq_url
+          %tr
+            %td.title_details Équipements
+            %td= @infrastructure.equipments
+          %tr
+            %td.title_details Horaires
+            %td= @infrastructure.opening_hours
+
+
+      .title_line.bold Où se trouve cet établissement ?
+      .row
+        .span9
+          = gmaps4rails(@infrastructure.to_gmaps4rails)
+
+        .span3.adresse_page_infra
+          %p.bold Adresse
+          %div= @infrastructure.hq_address
+          = @infrastructure.hq_zip_code
+          = @infrastructure.hq_city
+
+      .title_line.bold Commentaires
+
+      = render "messages/share_form", :commentable => @infrastructure
+
+      - @messages.each do |message, replies|
+        = render "messages/thread", :message => message, :replies => replies.keys

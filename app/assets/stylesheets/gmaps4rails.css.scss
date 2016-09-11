@@ -1,0 +1,19 @@
+.map_container {
+  width: 465px;
+}
+
+.gmaps4rails_map {
+  width: 465px;
+  height: 241px;
+}
+
+.sidebar {
+  .map_container {
+    width: 220px;
+  }
+
+  .gmaps4rails_map {
+    width: 220px;
+    height: 220px;
+  }
+}

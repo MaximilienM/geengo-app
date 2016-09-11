@@ -1,0 +1,125 @@
+$baseColor: <%= firm.basecolor_color %>;
+$complement: <%= firm.complement_color %>;
+$complementMedium: $complement + #111111;
+$complementLight: $complement + #333333;
+$linkColorHover: $complement;
+
+#personal-bar {
+  background-color: $baseColor;
+}
+
+.btn.primary {
+  background-color: $complementMedium;
+  border-color: $complementMedium $complementMedium $complement;
+  background-image: -webkit-linear-gradient(top, $complementLight, $complementMedium);
+  background-image: -o-linear-gradient(top, $complementLight, $complementMedium);
+}
+
+// bxslider pager
+.pager-link.pager-active {
+  color: $complement;
+  background-color: $complement;
+}
+
+.title-module {
+  color: $complement;
+}
+
+.title-module-actu {
+  color: $complement;
+}
+
+.events {
+
+  .event_circle {
+    background: $complement no-repeat 29px -5px;
+  }
+  
+  .btn.registration {
+     color: $complement;
+  }
+}
+
+.circle-myevents {
+  background-color: $complement;
+}
+
+.square-ico {
+  background-color: $complement;
+}
+
+.convers {
+
+  .date-wall {
+    color: $complement;
+  }
+
+  .message .rounded_rectangle {
+    &.answer_message, &.answer {
+      background-color: $baseColor;
+    }    
+  }
+}
+
+// Override of Bootstrap's rules
+
+@mixin box-shadow($shadow: 0 1px 3px rgba(0,0,0,.25)) {
+  -webkit-box-shadow: $shadow;
+     -moz-box-shadow: $shadow;
+          box-shadow: $shadow;
+}
+
+input:focus, textarea:focus {
+  border-color: rgba($complement,.8);
+  $shadow: inset 0 1px 3px rgba(0,0,0,.1), 0 0 8px rgba($baseColor,.6);
+  @include box-shadow($shadow);
+}
+
+a:hover {
+  color: $complement;
+}
+
+.pills {
+  a {
+    &:hover {
+      background-color: $linkColorHover;
+    }
+  }
+}
+
+// Other
+
+.pagination {
+  
+  li a {
+    color: $complement;
+  }
+  
+  .active a {
+    background-color: $baseColor;
+    color: $complement;
+  }
+  
+  a:hover {
+    background-color: $baseColor;
+  }
+}
+
+.square-ico-small {
+  background-color: $complement;
+}
+
+// Sport communities
+
+.pills.my_pills a:hover {
+  background-color: $complement;
+}
+
+.active.my_active a {
+  background-color: $complement;
+}
+
+.here {
+  color: $complement;
+}
+

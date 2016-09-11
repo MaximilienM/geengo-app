@@ -1,0 +1,5 @@
+<p>Bienvenue sur Geengo <%= @resource.email %>!</p>
+
+<p>Vous pouvez confirmer votre compte en cliquant sur le lien ci-dessous:</p>
+
+<p><%= link_to 'Confirmer mon compte', employee_confirmation_url(:confirmation_token => @resource.confirmation_token) %></p>
